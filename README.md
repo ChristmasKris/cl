@@ -26,14 +26,14 @@ The ```backgroundColor``` parameter expects a string. Here you can specify the b
 
 The ```fontColor``` parameter expects a string. Here you can specify the color of the font.
 
-## - borderRadius
+### - borderRadius
 
 The ```borderRadius``` parameter expects a string. Here you can specify the border radius of the message.
 
-## - fontSize
+### - fontSize
 
 The ```fontSize``` parameter expects a string. Here you can specify the font size.
 
-## - padding
+### - padding
 
 The ```padding``` parameter expects a string. Here you can specify the padding of the message.

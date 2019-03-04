@@ -1,5 +1,6 @@
 # ConsoleLog
 This is a Javascript library with which you can log custom messages in the console.
+This library is created to make the console.log function more customisable and simpler to write when you just quickly need to log a custom error to the console.
 
 # Documentation
 

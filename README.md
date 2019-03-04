@@ -25,7 +25,7 @@ This color can either be a color name like: ```blue``` or a hex value like ```#f
 
 ### - fontColor
 
-The ```fontColor``` parameter expects a string. Here you can specify the color of the font.
+The ```fontColor``` parameter expects a string. Here you can specify the color of the font.  
 This color can either be a color name like: ```blue``` or a hex value like ```#ffffff```.
 
 ### - borderRadius

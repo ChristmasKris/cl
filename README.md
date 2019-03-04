@@ -12,28 +12,28 @@ You can replace any parameter by ```false``` to use the browser-default css styl
 cl.log(message, backgroundColor, fontColor, borerRadius, fontSize, padding);
 ```
 
-* - Message
+### * Message
 
 The ```message``` parameter expects a string. Here you can type in your message.
 
-### - backgroundColor
+### * backgroundColor
 
 The ```backgroundColor``` parameter expects a string. Here you can specify the background color of the displayed message.
 This color can either be a color name like: ```blue``` or a hex value like ```#ffffff```.
 
-### - fontColor
+### * fontColor
 
 The ```fontColor``` parameter expects a string. Here you can specify the color of the font.  
 This color can either be a color name like: ```blue``` or a hex value like ```#ffffff```.
 
-### - borderRadius
+### * borderRadius
 
 The ```borderRadius``` parameter expects a string. Here you can specify the border radius of the message.
 
-### - fontSize
+### * fontSize
 
 The ```fontSize``` parameter expects a string. Here you can specify the font size.
 
-### - padding
+### * padding
 
 The ```padding``` parameter expects a string. Here you can specify the padding of the message.

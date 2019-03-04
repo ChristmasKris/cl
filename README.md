@@ -12,7 +12,7 @@ You can replace any parameter by ```false``` to use the browser-default css styl
 cl.log(message, backgroundColor, fontColor, borerRadius, fontSize, padding);
 ```
 
-### - Message
+* - Message
 
 The ```message``` parameter expects a string. Here you can type in your message.
 

@@ -9,4 +9,6 @@ Below you can find the short, but useful documentation for this small and compac
 
 With the main function you can log a message into the console as shown below.
 
-``` cl.log(message, backgroundColor, fontColor, borerRadius, fontSize, padding);
+```
+cl.log(message, backgroundColor, fontColor, borerRadius, fontSize, padding);
+```

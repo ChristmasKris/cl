@@ -21,10 +21,12 @@ The ```message``` parameter expects a string. Here you can type in your message.
 ### - backgroundColor
 
 The ```backgroundColor``` parameter expects a string. Here you can specify the background color of the displayed message.
+This color can either be a color name like: ```blue``` or a hex value like ```#ffffff```.
 
 ### - fontColor
 
 The ```fontColor``` parameter expects a string. Here you can specify the color of the font.
+This color can either be a color name like: ```blue``` or a hex value like ```#ffffff```.
 
 ### - borderRadius
 

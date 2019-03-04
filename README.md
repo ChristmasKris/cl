@@ -34,6 +34,6 @@ The ```borderRadius``` parameter expects a string. Here you can specify the bord
 
 The ```fontSize``` parameter expects a string. Here you can specify the font size.
 
-###* padding
+### padding
 
 The ```padding``` parameter expects a string. Here you can specify the padding of the message.

@@ -1,9 +1,6 @@
-# ConsoleLog
+# Documentation
 This is a Javascript library with which you can log custom messages in the console.
 This library is created to make the console.log function more customisable and simpler to write when you just quickly need to log a custom error to the console.
-
-# Documentation
-
 Below you can find the short, but useful documentation for this small and compact Javascript library.
 
 ## Main function

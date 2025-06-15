@@ -1,39 +1,125 @@
-# Documentation
-This is a Javascript library with which you can log custom messages in the console.
-This library is created to make the console.log function more customisable and simpler to write when you just quickly need to log a custom error to the console.
-Below you can find the short, but useful documentation for this small and compact Javascript library.
+# Custom Console Logger (CL)
 
-## Main function
+![Example console.log](./READMEImages/2.png "Example console.log")
 
-With this function you can log a message into the console as shown below.
-You can replace any parameter by ```false``` to use the browser-default css style.
+## What is this project?
 
+This project is a lightweight JavaScript library called **CL (Custom Logger)** that allows you to log custom-styled messages to the browser console. It extends the basic `console.log` functionality by letting you easily add colors, border radius, font size, and padding to your log messages, making debugging and error reporting more visually clear and professional.
+
+## Why did I build it?
+
+While working on various JavaScript projects, I found the default `console.log` output to be visually bland and sometimes hard to distinguish between different types of messages. I wanted a quick and reusable way to highlight important logs, errors, or statuses directly in the console, without having to write repetitive CSS each time. This library solves that problem by providing a single, easy-to-use function for custom console output.
+
+## Technologies and Tools Used
+
+- **JavaScript**: The entire library is written in vanilla JavaScript, making it lightweight and dependency-free.
+- **Browser Console API**: Utilizes the `%c` formatting feature of `console.log` for custom styles.
+
+## How does it work?
+
+The main function is `cl.log`, which takes the following parameters:
+
+```js
+cl.log(message, backgroundColor, fontColor, borderRadius, fontSize, padding);
 ```
-cl.log(message, backgroundColor, fontColor, borerRadius, fontSize, padding);
+
+You can use color names or hex codes for colors, and specify CSS values for the other parameters. If you omit a parameter, a default value is used.
+
+### Example Usage
+
+```js
+cl.log('CL loaded successfully', '#46a049', '#ffffff', '4px', '14px', '0 7px');
 ```
 
-### message
+This will output a styled message in the console:
 
-The ```message``` parameter expects a string. Here you can type in your message.
+![Example console.log](./READMEImages/1.png "Example console.log")
 
-### backgroundColor
 
-The ```backgroundColor``` parameter expects a string. Here you can specify the background color of the displayed message.
-This color can either be a color name like: ```blue``` or a hex value like ```#ffffff```.
+### Core Implementation
 
-### fontColor
+Here’s a look at the main logic from the project:
 
-The ```fontColor``` parameter expects a string. Here you can specify the color of the font.  
-This color can either be a color name like: ```blue``` or a hex value like ```#ffffff```.
+```js
+let cl = {
+   log: function(msg, bgColor, fontColor, borderRadius, fontSize, padding) {
+      msg = msg ? msg : 'Default message';
+      bgColor = bgColor ? bgColor : '#ffffff';
+      fontColor = fontColor ? fontColor : '#000000';
+      borderRadius = borderRadius ? borderRadius : '0';
+      fontSize = fontSize ? fontSize : '10';
+      padding = padding ? padding : '0';
 
-### borderRadius
+      var colors = [bgColor, fontColor];
 
-The ```borderRadius``` parameter expects a string. Here you can specify the border radius of the message.
+      for(let i = 0; i < colors.length; i++) {
+         if(colors[i].charAt(0) == '#') {
+            if(!this.checkColorHex(colors[i])) {
+               return false;
+            }
+         } else if(colors[i].charAt(0) != '#') {
+            if(!this.checkColorName(colors[i])) {
+               return false;
+            }
+         }
+      }
 
-### fontSize
+      let styles = [
+         'background: ' + bgColor,
+         'color: ' + fontColor,
+         'border-radius: ' + borderRadius,
+         'font-size: ' + fontSize,
+         'padding: ' + padding
+      ].join(';');
 
-The ```fontSize``` parameter expects a string. Here you can specify the font size.
+      console.log('%c' + msg, styles);
+   },
+   // ...existing code...
+};
+```
 
-### padding
+The library also includes helper functions to validate color values and display errors if an invalid color is provided:
 
-The ```padding``` parameter expects a string. Here you can specify the padding of the message.
+```js
+checkColorHex: function(color) {
+   let allowedChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+   color = color.substr(1);
+
+   if((color.length < 3) || (color.length == 5) || (color.length > 6)) {
+      this.error("The color you entered: \"" + color + "\" is not a valid color.");
+      return false;
+   }
+
+   for(let i = 0; i < color.length; i++) {
+      if(allowedChars.indexOf(color.charAt(i)) == (-1)) {
+         this.error("The color you entered: \"" + color + "\" is not a valid color.");
+         return false;
+      }
+   }
+
+   return true;
+},
+
+checkColorName: function(color) {
+   let s = new Option().style;
+   s.color = color;
+   if(s.color == color) {
+      return true;
+   } else {
+      this.error("The color you entered: \"" + color + "\" is not a valid color");
+      return false;
+   }
+},
+
+error: function(msg) {
+   console.error(msg);
+}
+```
+
+## What have I learned?
+
+*Note: I built this library years ago. If I were to design it today, I would use a single options object as an argument (e.g., `{ color: 'red', background: 'orange' }`) to make it much clearer what each value represents and to improve code readability and maintainability.*
+
+Building this project helped me deepen my understanding of the browser console API, JavaScript object design, and user-friendly API creation. I also learned the importance of validating user input and providing clear error messages for better developer experience.
+
+If you’d like to know more about the project, feel free to reach out!
